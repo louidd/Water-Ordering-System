@@ -11,7 +11,7 @@ function showUser() {
 // Array containing admin and user data
 const accounts = [
     { username: "admin1", password: "123", type: "admin" },
-    { username: "customer1", password: "123", type: "user" }
+    { username: "otenan", password: "123", type: "user" }
 ];
 
 // Function to login as admin
@@ -44,6 +44,7 @@ function loginUser() {
     if (account) {
         // Redirect based on user type
         if (account.type === "user") {
+            localStorage.setItem('username', account.username); // Store username in localStorage
             window.location.href = "userD.html";  // Redirect to user dashboard
         }
     } else {
