@@ -33,19 +33,19 @@
             <!-- Product selection -->
             <select id="productSelect">
                 <option value="" disabled selected>Select a product</option>
-                <option value="Product 1">1 Galon</option>
-                <option value="Product 2">10 Litre</option>
+                <option value="Galon">1 Galon</option>
+                <option value="Litre">10 Litre</option>
                 <option value="Both Product">Both</option>
             </select>
 
             <!-- Quantity for first product -->
-            <input type="number" id="quantity1" placeholder="Quantity for 1 Galon (Input '0' if di kani imong paliton boanga ka)" min="1">
+            <input type="number" for="galon" id="quantity1" placeholder="Quantity for 1 Galon (Input '0' if di kani imong paliton boanga ka)" min="1">
 
             <!-- Quantity for second product -->
-            <input type="number" id="quantity2" placeholder="Quantity for 10 Litre (Input '0' if di kani imong paliton boanga ka)" min="1">
+            <input type="number" for="litre" id="quantity2" placeholder="Quantity for 10 Litre (Input '0' if di kani imong paliton boanga ka)" min="1">
 
             <!-- Payment mode selection -->
-            <select id="paymentMode">
+            <select id="">
                 <option value="" disabled selected>Select payment mode</option>
                 <option value="Gcash">Gcash</option>
                 <option value="Cash On Delivery">Cash On Delivery</option>
@@ -63,14 +63,21 @@
 
         <center>
         <table border="1" cellpadding="30" cellspacing="0">
-            <td>#</td>
-            <td>Product Ordered</td>
-            <td>Price</td>
-            <td>Quantity</td>
-            <td>Date Ordered</td>
-            <td>Total</td>
-            <td>Mode of Payment</td>
-            <td>Function</td>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product Ordered</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Date Ordered</th>
+                    <th>Total</th>
+                    <th>Mode of Payment</th>
+                    <th>Function</th>
+                </tr>
+            </thead>
+            <tbody id="orders_content">
+                
+            </tbody>
         </table>
     </center>
     </div>
@@ -82,16 +89,47 @@
 
         <center>
         <table border="1" cellpadding="30" cellspacing="0">
-                <td>#</td>
-                <td>Product Ordered</td>
-                <td>Price</td>
-                <td>Quantity</td>
-                <td>Date Ordered</td>
-                <td>Date Delivered</td>
-                <td>Total</td>
+                <th>#</th>
+                <th>Product Ordered</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Date Ordered</th>
+                <th>Date Delivered</th>
+                <th>Total</th>
         </table>
     </center>
     </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Change Order</h2>
+            <select id="produSelect">
+                <option value="" disabled selected>Select a product</option>
+                <option value="Galon">1 Galon</option>
+                <option value="Litre">10 Litre</option>
+                <option value="Both Product">Both</option>
+            </select>
+
+            <!-- Quantity for first product -->
+            <input type="number"id="quant1" placeholder="Quantity for 1 Galon (Input '0' if di kani imong paliton boanga ka)" min="1">
+
+            <!-- Quantity for second product -->
+            <input type="number"id="quant2" placeholder="Quantity for 10 Litre (Input '0' if di kani imong paliton boanga ka)" min="1">
+
+            <!-- Payment mode selection -->
+            <select id="paymMode">
+                <option value="" disabled selected>Select payment mode</option>
+                <option value="Gcash">Gcash</option>
+                <option value="Cash On Delivery">Cash On Delivery</option>
+            </select>
+
+            <!-- Place Order button -->
+            <button class="place-order" onclick="save(index)">Place Order</button>
+        </div>
+    </div>
+
+
 
     <script src="js/userD.js"></script>
 </body>
