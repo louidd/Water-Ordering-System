@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: url("../img/scenery.jpg") no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(97, 91, 91, 0.3);
+    text-align: center;
+    min-width: 300px;
+    z-index: 1;
+    position: absolute;
+    margin-top: -10rem;
+}
+
+.login-box {
+    display: none;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(97, 91, 91, 0.3);
+    min-width: 300px;
+    top: 30%;
+    transform: translateY(-50%);
+    position: flex;
+    margin-top: 20rem;
+}
+
+.left-box {
+    left: -310px; /* Move the user form to the left side */
+}
+
+.right-box {
+    right: -310px; /* Move the admin form to the right side */
+}
