@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,20 +5,25 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Body Styling */
 body {
     background: url("../img/scenery.jpg") no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
 }
 
-/* Form and Login Box Styling */
-.form-box, .login-box {
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
     background: rgba(255, 255, 255, 0.5);
     padding: 40px;
     border-radius: 15px;
@@ -28,14 +32,16 @@ body {
     min-width: 300px;
     z-index: 1;
     position: absolute;
-}
-
-.form-box {
     margin-top: -10rem;
 }
 
 .login-box {
     display: none;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(97, 91, 91, 0.3);
+    min-width: 300px;
     top: 30%;
     transform: translateY(-50%);
     position: flex;
@@ -43,25 +49,39 @@ body {
 }
 
 .left-box {
-    left: 0;
+    left: -310px; /* Move the user form to the left side */
 }
 
 .right-box {
-    right: 0;
+    right: -310px; /* Move the admin form to the right side */
 }
 
-/* Media Queries for Responsive Design */
+/* Responsive design */
 @media (max-width: 768px) {
-    .form-box, .login-box {
-        width: 90%; /* Reduce form width for mobile */
-        padding: 20px;
-        margin-top: 0; /* Remove top margin for better alignment */
+    .form-box {
+        width: 90%; /* Ensure form takes up 90% of screen width on mobile */
+        padding: 20px; /* Reduce padding on mobile */
+        margin-top: 0;
+    }
+
+    .login-box {
+        width: 90%; /* Ensure login forms are more flexible on mobile */
+        margin-top: 2rem;
+        left: 0;
+        right: 0;
+        transform: none; /* Remove transform for better positioning */
+        position: static; /* Set position to static for normal flow */
     }
 
     .left-box, .right-box {
-        left: 0;
-        right: 0;
-        transform: none; /* Remove positioning transforms on mobile */
-        margin-top: 0;
+        position: static; /* Stack forms vertically */
+        margin: 10px 0; /* Add spacing between forms */
+        left: auto;
+        right: auto;
+    }
+
+    body {
+        flex-direction: column; /* Adjust the body to flex vertically */
+        padding: 20px;
     }
 }
