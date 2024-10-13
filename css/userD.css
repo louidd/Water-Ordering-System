@@ -1,3 +1,11 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -47,9 +55,8 @@ body {
     margin: 10px; /* Space around images */
 }
 
-/* Styling for form fields */
 select, input[type="number"] {
-    width: 100%; /* Full width for input fields */
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -59,7 +66,7 @@ select, input[type="number"] {
 /* Button styles */
 .place-order {
     padding: 10px 20px;
-    background-color: #4CAF50; /* Green background */
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
@@ -68,5 +75,25 @@ select, input[type="number"] {
 }
 
 .place-order:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack navbar vertically on smaller screens */
+    }
+
+    .navbar a {
+        margin: 5px 0; /* Adjust margins for vertical alignment */
+    }
+
+    .order-now {
+        max-width: 100%; /* Allow the order section to fill the screen on mobile */
+        padding: 0 20px; /* Add some padding for better spacing */
+    }
+
+    .order-now img {
+        max-width: 100px; /* Reduce image size on smaller screens */
+    }
 }
