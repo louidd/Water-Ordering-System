@@ -44,8 +44,8 @@ body {
     min-width: 300px;
     top: 30%;
     transform: translateY(-50%);
-    position: relative;
-    margin-top: -28rem;
+    position: flex;
+    margin-top: 20rem;
 }
 
 .left-box {
