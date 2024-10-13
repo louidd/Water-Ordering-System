@@ -29,6 +29,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(97, 91, 91, 0.3);
     text-align: center;
+    align-items: center;
     min-width: 300px;
     z-index: 1;
     position: absolute;
@@ -61,12 +62,12 @@ body {
     .form-box {
         width: 90%; /* Ensure form takes up 90% of screen width on mobile */
         padding: 20px; /* Reduce padding on mobile */
-        margin-top: 0;
+        margin-top: -15rem;
     }
 
     .login-box {
         width: 90%; /* Ensure login forms are more flexible on mobile */
-        margin-top: 2rem;
+        margin-top: 20rem;
         left: 0;
         right: 0;
         transform: none; /* Remove transform for better positioning */
@@ -78,6 +79,7 @@ body {
         margin: 10px 0; /* Add spacing between forms */
         left: auto;
         right: auto;
+        margin-top: 4rem;
     }
 
     body {
