@@ -24,6 +24,7 @@ function loginAdmin() {
     if (account) {
         // Redirect based on user type
         if (account.type === "admin") {
+            sessionStorage.setItem('admin', account.username); // Store username in localStorage
             window.location.href = "adminD.html";  // Redirect to admin dashboard
         }
     } else {
@@ -44,7 +45,7 @@ function loginUser() {
     if (account) {
         // Redirect based on user type
         if (account.type === "user") {
-            localStorage.setItem('username', account.username); // Store username in localStorage
+            sessionStorage.setItem('user', account.username); // Store username in localStorage
             window.location.href = "userD.html";  // Redirect to user dashboard
         }
     } else {
