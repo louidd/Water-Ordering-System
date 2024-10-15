@@ -1,6 +1,7 @@
 const orders_content = document.getElementById('orders_content');
 const myModal = document.getElementById("myModal");
 const close = document.getElementsByClassName("close")[0];
+let editIndex = null;
 
 function showContent(contentId) {
     // Hide all content
@@ -23,7 +24,7 @@ function showContent(contentId) {
 }  
 
 
-let products = JSON.parse(localStorage.getItem("productsData")) || [];  // Load products from localStorage
+let products = JSON.parse(localStorage.getItem("Data")) || [];  // Load products from localStorage
 
 function placeOrder() {
     const product = document.getElementById('productSelect').value;
@@ -34,56 +35,49 @@ function placeOrder() {
     const galon = 25;
     const litre = 15;
 
-    if (!product || !quantity1 && !quantity2 || !paymentMode) {
-        alert("Please fill in all fields!");
-        return;
-    }
-
     if(product === "Galon"){
         total = parseFloat(quantity1) * galon;
     }else if(product === "Litre"){
         total = parseFloat(quantity2) * litre;
     }else{
-        let tGal = parseFloat(quantity1) * galon;
-        let tLit = parseFloat(quantity2) * litre;
-        total = tGal + tLit;
+        total = (quantity1 * galon) + (quantity2 * litre);
+    }
+
+    let quanti;
+    let cont;
+
+    if(product === "Galon"){
+        quanti = quantity1;
+    }else if (product === "Litre"){
+        quanti = quantity2;
+    }else{
+        quanti = quantity1, quantity2;
+    }
+
+    if(product === "Galon"){
+        cont = galon;
+    }else if(product === "Litre"){
+        cont = litre;
+    }else{
+        cont = galon, litre;
     }
 
     let galon_content = {
         prodSelect : product,
-        quantity : quantity1,
+        quantity : quanti,
         total : total.toFixed(2),
-        payment : paymentMode,
-        pricegal : galon
-    };
-
-    let litre_cont = {
-        prodSelect : product,
-        quantity : quantity2,
-        total : total.toFixed(2),
-        payment : paymentMode,
-        pricegal : litre
-    };
-
-    let both_cont = {
-        prodSelect : product,
-        quantity : quantity2,
-        total : total.toFixed(2),
-        payment : paymentMode,
-        pricegal : galon
+        pricegal : cont,
+        payment : paymentMode
     };
 
 
-        if(product === "Galon"){
+
             products.push(galon_content);
-        }else if(product === "Litre"){
-            products.push(litre_cont);
-        }else{
-            products.push(both_cont);
-        }
+      
 
-    localStorage.setItem("productsData", JSON.stringify(products));  // Save to localStorage
+    localStorage.setItem("Data", JSON.stringify(products));  // Save to localStorage
     // Here you can add logic to handle the order placement, like sending data to a server.
+    alert("Order Pending")
     displayData();
 }
 
@@ -125,30 +119,76 @@ function displayData(){
 
 //Pop up Modal
 function change(index){
-    let product = products[index];
+    editIndex = index; // Set the global editIndex
+    let prod = products[index];
 
-    document.getElementById("produSelect").value = product.prodSelect;
-    document.getElementById("quant1").value = product.quantity;
-    document.getElementById("quant2").value = product.quantity;
-    document.getElementById("paymMode").value = product.payment;
+    document.getElementById("produSelect").value = prod.prodSelect;
+    document.getElementById("quant1").value = prod.prodSelect === "Galon" ? prod.quantity : 0; // Set quantity for Galon
+    document.getElementById("quant2").value = prod.prodSelect === "Litre" ? prod.quantity : 0; // Set quantity for Litre
+    document.getElementById("paymMode").value = prod.payment;
 
     myModal.style.display = "block";
+}
+
+function save(){
+    // Get the values from the modal inputs
+    const product = document.getElementById("produSelect").value;
+    const quantity1 = parseInt(document.getElementById("quant1").value) || 0; // Default to 0 if empty
+    const quantity2 = parseInt(document.getElementById("quant2").value) || 0; // Default to 0 if empty
+    const paymentMode = document.getElementById("paymMode").value;
+    
+    // Validate inputs
+    if (!product || (!quantity1 && !quantity2) || !paymentMode) {
+        alert("Please fill all fields.");
+        return;
+    }
+
+    // Calculate the total based on the quantities and selected product
+    const galon = 25;
+    const litre = 15;
+    let total = 0;
+
+    if (product === "Galon") {
+        total = quantity1 * galon;
+    } else if (product === "Litre") {
+        total = quantity2 * litre;
+    } else {
+        total = (quantity1 * galon) + (quantity2 * litre);
+    }
+
+    // Create an updated product object
+    const updatedProduct = {
+        prodSelect: product,
+        quantity: (product === "Galon" ? quantity1 : quantity2),
+        total: total.toFixed(2),
+        payment: paymentMode,
+        pricegal: product === "Galon" ? galon : litre
+    };
+
+    // Update the product in the products array
+    products[editIndex] = updatedProduct;
+
+    // Save the updated products array to localStorage
+    localStorage.setItem("Data", JSON.stringify(updatedProduct));
+
+    // Close the modal and refresh the display
+    closeModal();
+    displayData();
+}
+
+function closeModal(){
+    myModal.style.display = "none"
 }
 
 close.onclick = function() {
     myModal.style.display = "none";
 }
 
-//Change Product
-function save(){
-    
-}
-
 //Delete product after clicking yes
 function cancel(index){
     if (confirm("Are you sure you want to cancel this Order?")) {
         products.splice(index, 1);  // Remove product from array by original index
-        localStorage.setItem("productsData", JSON.stringify(products));  // Update localStorage
+        localStorage.setItem("Data", JSON.stringify(products));  // Update localStorage
         displayData();  // Refresh the display
     }
 }
