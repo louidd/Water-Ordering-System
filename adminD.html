@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin's Dashboard</title>
+    <link rel="stylesheet" href="css/adminD.css">
+</head>
+<body>
+
+    <center>
+        <div class="navbar">
+            <a href="#home" onclick="showContent('home')">Home</a>
+            <a href="#history" onclick="showContent('history')">History</a>
+            <a href="index.html" class="logout-btn" onclick="logout()">Logout</a> <!-- Logout button -->
+        </div>
+    
+
+    <!-- Home Section -->
+    <div id="home-section" class="content-section">
+        <div class="dashboard-summary">
+            <div class="widget">
+                <a href="#" onclick="showDetails('customerList')">Total of Customer</a>
+                <p>125</p>
+            </div>
+            <div class="widget">
+                <a href="#" onclick="showDetails('pendingOrders')">Pending Orders</a>
+                <p>50</p>
+            </div>
+            <div class="widget">
+                <a href="#" onclick="showDetails('toBeDelivered')">To be Delivered</a>
+                <p>30</p>
+            </div>
+            <div class="widget">
+                <h2>Completed Orders</h2>
+                <p>95</p>
+            </div>
+        </div> <br>
+
+        
+
+        <div class="notification">
+            <p>🔔 You have 3 new pending orders!</p>
+            <span class="close-btn" onclick="closeNotification()">&times;</span> <!-- Close button -->
+        </div>
+
+        <canvas id="orderStatusChart"></canvas>
+    </div>
+
+    <!-- Customer List Section -->
+    <div id="customerList-section" class="content-section" style="display:none;">
+        <input type="text" id="searchBar" placeholder="Search for Customers..." onkeyup="searchCustomer()"><br><br><br>
+        <table border="0" cellpadding="20" cellspacing="20">
+            <th>
+                <td><strong>Customer Name</strong></td>
+                <td><strong>Address</strong></td>
+                <td><strong>Contact number</strong></td>
+                <td><strong>Email Address</strong></td>
+                <td><strong>Orders Completed</strong></td>
+            </th>
+        </table>
+    </div>
+
+    <!-- Pending Orders Section -->
+    <div id="pendingOrders-section" class="content-section" style="display:none;">
+        <h2>Pending Orders</h2>
+         <table border="0" cellpadding="20" cellspacing="20">
+            <th><strong>Order Number</strong></th>
+             <th><strong>Order Detail</strong></th>  <!-- ang action diri kay View Order Detail/View Detail, nya naay mopop up nalang guro nga modal para sa Order Details -->
+         </table>
+    </div>
+
+    <!-- To be Delivered Section -->
+    <div id="toBeDelivered-section" class="content-section" style="display:none;" >
+        <h2>Orders to be Delivered</h2><br>
+        <ul>
+            <li>Order #12348 for Customer oten</li>
+            <li>Order #12349 for Customer einstein</li>
+            <li>Order #12350 for Customer Michael Jackson</li>
+            <!-- Add more orders to be delivered -->
+        </ul>
+    </div>
+    
+
+    <!-- History Section -->
+     
+    <div id="history-section" class="content-section" style="display:none;">
+        <div class="breadcrumbs">
+            <a href="#home">Home</a> > <span>History</span>
+        </div>
+
+        <div class="activity-log">
+            <h3>Recent Activities</h3>
+            <ul>
+                <li>Order #12345 was marked as completed by Admin #1.</li>
+                <li>Customer #1 updated their delivery address.</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Order Details</h2>
+            <p>Order ID: 12345</p>
+            <p>Customer: John Doe</p>
+            <p>Status: Pending</p>
+            <!-- Other details -->
+        </div>
+    </div>
+    </center>
+
+    <script src="js/adminD.js"></script>
+</body>
+</html>

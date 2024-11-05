@@ -1,0 +1,133 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: center; /* Center the navbar links */
+    background-color: #333;
+    padding: 10px 0;
+    position: relative;
+    align-items: center; /* Vertically center the items */
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    margin: 0 40px; /* Adds horizontal space between links */
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Logout button */
+.logout-btn {
+    margin-left: auto; /* Pushes the logout button to the far right */
+    background-color: #333;
+}
+
+.logout-btn:hover {
+    background-color: gray;
+}
+
+/* Content display */
+.content {
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.content.active {
+    display: block;
+}
+
+/* Styles for the Order Now section */
+.order-now {
+    max-width: 600px; /* Limit the width of the Order Now section */
+    margin: 0 auto; /* Center the section */
+}
+
+.order-now img {
+    width: 100%; /* Make images responsive */
+    max-width: 200px; /* Set a max width for images */
+    margin: 10px; /* Space around images */
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button styles */
+.place-order {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.place-order:hover {
+    background-color: #45a049;
+}
+
+.imgcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.galons {
+    height: 12rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack navbar vertically on smaller screens */
+        align-items: flex;  
+    }
+
+    .navbar a {
+        margin: 5px 0; /* Adjust margins for vertical alignment */
+        text-align: center; /* Align text to the left */
+        width: 100%; /* Make links fill the width */
+        padding-left: 20px; /* Add padding for better spacing */
+    }
+
+    .logout-btn {
+        margin-left: 0; /* Remove margin to keep the button inline */
+        align-self: flex-end; /* Align the logout button to the right */
+        padding-right: 20px; /* Add padding to the right */
+    }
+
+    .order-now {
+        max-width: 100%; /* Allow the order section to fill the screen on mobile */
+        padding: 0 20px; /* Add some padding for better spacing */
+    }
+
+    .order-now img {
+        max-width: 100px; /* Reduce image size on smaller screens */
+    }
+}

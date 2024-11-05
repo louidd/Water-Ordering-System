@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Ordering System</title>
+    <link rel="stylesheet" href="css/userD.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home" onclick="showContent('home')">Home</a>
+        <a href="#orderNow" onclick="showContent('orderNow')">Order Now</a>
+        <a href="#placedOrders" onclick="showContent('placedOrders')">Placed Orders</a>
+        <a href="#history" onclick="showContent('history')">History</a>
+        <a href="#logout" class="logout-btn" onclick="logout()">Logout</a> <!-- Logout button -->
+    </div>
+    
+
+    <!-- Home content -->
+    <div class="content active" id="homeContent">
+        <h1>Welcome, <span id="customerUsername"></span>!</h1>
+    </div>
+
+    <!-- Order Now content -->
+    <div class="content" id="orderNowContent">
+        <h1>Order Now</h1>
+        
+        <div class="order-now">
+            <!-- Images for products -->
+
+            <div class="imgcontainer">
+                <div> 
+                    <img class="galons" src="img/container.jpg" alt="Product 1">
+                    <h1>1 GALON </h1>
+                </div>
+                <div>
+                    <img class="galons" src="img/5liter.webp" alt="Product 2">
+                    <h1>10 LITRE</h1>
+                </div>    
+            </div>
+
+            <!-- Product selection -->
+            <select id="productSelect">
+                <option value="" disabled selected>Select a product</option>
+                <option value="Product 1">1 Galon</option>
+                <option value="Product 2">10 Litre</option>
+                <option value="Both Product">Both</option>
+            </select>
+
+            <!-- Quantity for first product -->
+            <input type="number" id="Galon" placeholder="Quantity for 1 Galon (Input '0' if di kani imong paliton boanga ka)" min="1">
+
+            <!-- Quantity for second product -->
+            <input type="number" id="Litre" placeholder="Quantity for 10 Litre (Input '0' if di kani imong paliton boanga ka)" min="1">
+
+            <!-- Payment mode selection -->
+            <select id="paymentMode">
+                <option value="" disabled selected>Select payment mode</option>
+                <option value="Gcash">Gcash</option>
+                <option value="Cash On Delivery">Cash On Delivery</option>
+            </select>
+
+            <!-- Place Order button -->
+            <button class="place-order" onclick="placeOrder()">Place Order</button>
+        </div>
+    </div>
+
+    <!-- Placed Orders content -->
+    <div class="content" id="placedOrdersContent">
+        <h1>Placed Orders</h1>
+        <p>Here you can view your placed orders.</p>
+
+        <center>
+        <table border="0" cellpadding="30" cellspacing="40">
+            <td>#</td>
+            <td>Product Ordered</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Date Ordered</td>
+            <td>Total</td>
+            <td>Mode of Payment</td>
+            <td>Function</td>
+        </table>
+    </center>
+    </div>
+
+    <!-- History content -->
+    <div class="content" id="historyContent">
+        <h1>Order History</h1>
+        <p>Here you can view your order history.</p>
+
+        <center>
+        <table border="0" cellpadding="30" cellspacing="40">
+                <td>#</td>
+                <td>Product Ordered</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Date Ordered</td>
+                <td>Date Delivered</td>
+                <td>Total</td>
+        </table>
+    </center>
+    </div>
+
+    <script src="js/userD.js"></script>
+</body>
+</html>
