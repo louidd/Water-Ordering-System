@@ -2,6 +2,7 @@
 function showContent(section) {
     const homeSection = document.getElementById('home-section');
     const historySection = document.getElementById('history-section');
+    const registerSection = document.getElementById('register-section')
     const customerListSection = document.getElementById('customerList-section');
     const pendingOrdersSection = document.getElementById('pendingOrders-section');
     const toBeDeliveredSection = document.getElementById('toBeDelivered-section');
@@ -9,6 +10,7 @@ function showContent(section) {
     // Hide all sections first
     homeSection.style.display = 'none';
     historySection.style.display = 'none';
+    registerSection.style.display = 'none';
     customerListSection.style.display = 'none';
     pendingOrdersSection.style.display = 'none';
     toBeDeliveredSection.style.display = 'none';
@@ -18,6 +20,8 @@ function showContent(section) {
         homeSection.style.display = 'block';
     } else if (section === 'history') {
         historySection.style.display = 'block';
+    } else if (section === 'register') {
+        registerSection.style.display = 'block';
     }
 }
 

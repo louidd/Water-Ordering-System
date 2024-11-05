@@ -196,3 +196,12 @@ body {
     border-radius: 5px;
     width: 400px;
 }
+
+.container {
+    margin-top: 5rem;
+}
+
+input{
+    display: flex;
+}
+
