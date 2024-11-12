@@ -69,9 +69,19 @@ function placeOrder() {
     };
 
     const pendingOrders = Accounts.findIndex(comp => comp.Username === userLogin);
+    const productSelect = document.getElementById("productSelect");
+    const galonInput = document.getElementById("Galon");
+    const litreInput = document.getElementById("Litre");
+    const paymentModeSelect = document.getElementById("paymentMode");
+
 
     if(pendingOrders !== -1){
         Accounts[pendingOrders].pendingOrder += 1;
+        alert("Place Order Successfully")
+        productSelect.selectedIndex = 0;
+        paymentModeSelect.selectedIndex = 0;
+        galonInput.value = "";
+        litreInput.value = "";
     }else{
         console.warn("Account not found for user:", userLogin)
     }

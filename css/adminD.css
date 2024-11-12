@@ -27,15 +27,7 @@ a {
     color: black;
 }
 
-/* Logout button */
-.logout-btn {
-    margin-left: auto; /* Pushes the logout button to the far right */
-    background-color: #333;
-}
 
-.logout-btn:hover {
-    background-color: gray;
-}
 
 .dashboard-summary {
     display: flex;

@@ -118,10 +118,6 @@ input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, te
   background-color: #f0f0f0;
 }
 
-.profile-options a i.icon {
-  margin-right: 10px;
-}
-
 
 .logout-btn:hover {
   background-color: #fce4e4;
