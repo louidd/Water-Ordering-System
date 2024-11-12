@@ -1,0 +1,202 @@
+/* Container Styles */
+#customerList-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Search Bar Styles */
+  #searchBar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table Styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  /* Header Row Styling */
+  table thead tr {
+    background-color: #4CAF50; /* Header background color */
+    color: white;
+  }
+  
+  table th, table td {
+    padding: 15px; /* Adds padding for readability */
+    border: 1px solid #ddd; /* Adds borders around cells */
+  }
+  
+  /* Zebra Striping for Rows */
+  table tbody tr:nth-child(even) {
+    background-color: #f3f3f3; /* Light gray for alternating rows */
+  }
+  
+  /* Hover Effect on Rows */
+  table tbody tr:hover {
+    background-color: #d1e7dd; /* Light green on hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #searchBar {
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    table, th, td {
+        font-size: 14px;
+    }
+  }
+  
+  /* Container Styles for Pending Orders */
+#pendingOrders-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Title */
+#pendingOrders-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Table Styles */
+#pendingOrders-section table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Header Row Styling */
+#pendingOrders-section thead tr {
+    background-color: #007bff; /* Blue header background */
+    color: white;
+}
+
+#pendingOrders-section th, #pendingOrders-section td {
+    padding: 15px; /* Padding inside cells */
+    border: 1px solid #ddd; /* Cell borders */
+}
+
+/* Zebra Striping for Rows */
+#pendingOrders-section tbody tr:nth-child(even) {
+    background-color: #f3f3f3; /* Light gray for alternating rows */
+}
+
+/* Hover Effect on Rows */
+#pendingOrders-section tbody tr:hover {
+    background-color: #e3f2fd; /* Light blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #pendingOrders-section h2 {
+        font-size: 20px;
+    }
+    
+    #pendingOrders-section table, 
+    #pendingOrders-section th, 
+    #pendingOrders-section td {
+        font-size: 14px;
+    }
+}
+
+/* Container Styles for Orders to be Delivered */
+#toBeDelivered-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Title */
+#toBeDelivered-section h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* List of Orders */
+#delivering {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual Order Item */
+#delivering li {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* Hover Effect on Order Items */
+#delivering li:hover {
+    background-color: #e3f2fd;
+}
+
+/* Button for Order Actions */
+.order-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.order-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #toBeDelivered-section h2 {
+        font-size: 20px;
+    }
+
+    #delivering li {
+        font-size: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+

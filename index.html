@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Ordering System</title>
-    <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
-        <!-- User Login Form (appears on the left) -->
-        <div id="userLogin" class="login-box left-box">
-            <h2>Login as User:</h2>
-            <form onsubmit="return loginUser()">
-                <label for="userN">Username:</label><br>
-                <input type="text" id="user" name="user" placeholder="username" required><br><br>
-                <label for="password">Password:</label><br>
-                <input type="password" id="userP" name="userP" placeholder="password" required>
-                <button type="submit" id="userLog">Login</button>
-            </form>
-        </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Water Ordering System</title>
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+            <!-- Choice Buttons (centered) -->
+            <div class="form-box">
+                <h1>Login as:</h1>
+                <div style="margin-top: 10px;">
+                    <button onclick="showUser()">User</button>
+                    <button onclick="showAdmin()">Admin</button>
+                </div>
+            </div>
 
-        <!-- Choice Buttons (centered) -->
-        <div class="form-box">
-            <h1>Login as:</h1>
-            <button onclick="showUser()">User</button>
-            <button onclick="showAdmin()">Admin</button>
-        </div>
+            <!-- User Login Form (appears on the left) -->
+            <div id="userLogin" class="login-box form-box">
+                <h2>Login as User:</h2>
+                <form onsubmit="return loginUser()">
+                    <input type="text" id="user" name="user" placeholder="username" required>
+                    <input type="password" id="userP" name="userP" placeholder="password" required>
+                    <div>
+                        <button type="submit" id="userLog">Login</button>
+                    </div>
+                </form>
+            </div>
 
-        <!-- Admin Login Form (appears on the right) -->
-        <div id="adminLogin" class="login-box right-box" style="display: none;">
-            <h2>Login as Admin:</h2>
-            <form onsubmit="return loginAdmin()">
-                <label for="adminN">Username:</label><br>
-                <input type="text" id="admin" name="admin" placeholder="username" required><br><br>
-                <label for="password">Password:</label><br>
-                <input type="password" id="adminP" name="adminP" placeholder="password" required>
-                <button type="submit" id="adminLog">Login</button>
-            </form>
-        </div>
+            <!-- Admin Login Form (appears on the right) -->
+            <div id="adminLogin" class="login-box form-box" style="display: none;">
+                <h2>Login as Admin:</h2>
+                <form onsubmit="return loginAdmin()">
+                    <input type="text" id="admin" name="admin" placeholder="username" required>
+                    <input type="password" id="adminP" name="adminP" placeholder="password" required>
+                    <div>
+                        <button type="submit" id="adminLog">Login</button>
+                    </div>
+                </form>
+            </div>
 
-    <script src="js/login.js"></script>
-</body>
+        <script src="js/login.js"></script>
+    </body>
 </html>

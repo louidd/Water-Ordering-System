@@ -5,18 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin's Dashboard</title>
     <link rel="stylesheet" href="css/adminD.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tables.css">
 </head>
 <body>
 
-    <center>
-        <div class="navbar">
-            <a href="#home" onclick="showContent('home')">Home</a>
-            <a href="#history" onclick="showContent('history')">History</a>
-            <a href="#register" onclick="showContent('register')">Register</a>
-            <a href="index.html" class="logout-btn" onclick="logout()">Logout</a> <!-- Logout button -->
+    <div class="navbar">
+        <img src="img/logo-removebg-preview.png" class="logo">
+        <a href="#home" onclick="showContent('home')">Home</a>
+        <a href="#history" onclick="showContent('history')">History</a>
+        <a href="#register" onclick="showContent('register')">Register</a>
+        <!-- Profile Icon for Dropdown Menu -->
+        <div class="profile-icon" onclick="toggleDropdown()">
+            <img src="img/icon.png" alt="Profile Icon" class="icon-image">
         </div>
+    </div>
     
-
+    <!-- Dropdown Menu -->
+    <div class="profile-menu" id="profileMenu">
+        <div class="profile-header">
+            <img src="img/icon.png" alt="Profile Image" class="profile-image">
+            <h2>Einstein Gay</h2>
+        </div>
+        <div class="profile-options">
+            <a href="#view-profile"><i class="icon user-icon"></i> View Profile</a>
+            <a href="#register"><i class="icon settings-icon"></i> Register new Admin</a>
+            <a href="#notification"><i class="icon help-icon"></i> Notifications</a>
+            <a href="index.html" class="icon logout-icon" onclick="logout()">Logout</a>
+        </div>
+    </div>
+    
+        
+        <center>
     <!-- Home Section -->
     <div id="home-section" class="content-section">
         <div class="dashboard-summary">
@@ -34,14 +54,13 @@
             </div>
             <div class="widget">
                 <h2>Completed Orders</h2>
-                <p>95</p>
+                <p id="totalC">0</p>
             </div>
-        </div> <br>
-
+        </div>
         
 
-        <div class="notification">
-            <p>🔔 You have 3 new pending orders!</p>
+        <div class="notification" id="notification">
+            <p>🔔You have <span id="notif"></span> new pending orders!</p>
             <span class="close-btn" onclick="closeNotification()">&times;</span> <!-- Close button -->
         </div>
 
@@ -50,15 +69,22 @@
 
     <!-- Customer List Section -->
     <div id="customerList-section" class="content-section" style="display:none;">
-        <input type="text" id="searchBar" placeholder="Search for Customers..." onkeyup="searchCustomer()"><br><br><br>
+        <input type="text" id="searchBar" placeholder="Search for Customers..."><br><br><br>
         <table border="0" cellpadding="20" cellspacing="20">
-            <th>
-                <td><strong>Customer Name</strong></td>
-                <td><strong>Address</strong></td>
-                <td><strong>Contact number</strong></td>
-                <td><strong>Email Address</strong></td>
-                <td><strong>Orders Completed</strong></td>
-            </th>
+            <thead>
+                <tr>
+                    <th><strong>Username</strong></th>
+                    <th><strong>Password</strong></th>
+                    <th><strong>Customer Name</strong></th>
+                    <th><strong>Address</strong></th>
+                    <th><strong>Contact number</strong></th>
+                    <th><strong>Email Address</strong></th>
+                    <th><strong>Orders Completed</strong></th>
+                </tr>
+            </thead>
+            <tbody id="account_content">
+
+            </tbody>
         </table>
     </div>
 
@@ -66,18 +92,24 @@
     <div id="pendingOrders-section" class="content-section" style="display:none;">
         <h2>Pending Orders</h2>
          <table border="0" cellpadding="20" cellspacing="20">
-            <th><strong>Order Number</strong></th>
-             <th><strong>Order Detail</strong></th>  <!-- ang action diri kay View Order Detail/View Detail, nya naay mopop up nalang guro nga modal para sa Order Details -->
+            <thead>
+                <tr>
+                    <th><strong>Order Number</strong></th>
+                    <th><strong>Username</strong></th>
+                    <th><strong>Order Detail</strong></th>
+                    <th><strong>Order Status</strong></th>  <!-- ang action diri kay View Order Detail/View Detail, nya naay mopop up nalang guro nga modal para sa Order Details -->
+                </tr>
+            </thead>
+            <tbody id="order_content">
+ 
+            </tbody>
          </table>
     </div>
 
     <!-- To be Delivered Section -->
     <div id="toBeDelivered-section" class="content-section" style="display:none;" >
         <h2>Orders to be Delivered</h2><br>
-        <ul>
-            <li>Order #12348 for Customer oten</li>
-            <li>Order #12349 for Customer einstein</li>
-            <li>Order #12350 for Customer Michael Jackson</li>
+        <ul id="delivering">
             <!-- Add more orders to be delivered -->
         </ul>
     </div>
@@ -92,9 +124,7 @@
 
         <div class="activity-log">
             <h3>Recent Activities</h3>
-            <ul>
-                <li>Order #12345 was marked as completed by Admin #1.</li>
-                <li>Customer #1 updated their delivery address.</li>
+            <ul id="history_content">
             </ul>
         </div>
     </div>
@@ -115,6 +145,13 @@
         <h2>Here you can register new accounts</h2>
         <form>
         <div class="container">
+
+            <label for="cname">Username:</label>
+            <input type="text" id="uname"><br>
+
+            <label for="cname">Password:</label>
+            <input type="text" id="pass"><br>
+
             <label for="cname">Complete Name:</label>
             <input type="text" id="cname"><br>
 
@@ -136,6 +173,22 @@
 
         </div>
     </center>
+
+    <!-- Modal for Product -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="bothName"></h2>
+            <p class="align"><strong>Order for:</strong><br><span id="cUser"></span></p>
+            <p class="align"><strong>Price for Galon:</strong><br><span id="galonPrice"></span></p>
+            <p class="align"><strong>Quantity for Galon:</strong><br><span id="galonQuant"></span></p>
+            <p class="align"><strong>Date Ordered:</strong><br><span id="orderDate"></span></p>
+            <p class="align"><strong>Total:</strong><br><span id="orderTotal"></span></p>
+            <p class="align"><strong>Mode Of Payment:</strong><br><span id="orderMOP"></span></p>
+            <button onclick="tbDeliver()">Accept</button>
+            <button onclick="cDeliver()" id="cancel">Cancel</button>
+        </div>
+     </div>
 
     <script src="js/adminD.js"></script>
 </body>

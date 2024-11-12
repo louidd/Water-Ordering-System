@@ -13,10 +13,8 @@
         <a href="#orderNow" onclick="showContent('orderNow')">Order Now</a>
         <a href="#placedOrders" onclick="showContent('placedOrders')">Placed Orders</a>
         <a href="#history" onclick="showContent('history')">History</a>
-            </div>
-        </div>
+        <a href="#logout" class="logout-btn" onclick="logout()">Logout</a> <!-- Logout button -->
     </div>
-    
     
 
     <!-- Home content -->
@@ -36,25 +34,17 @@
                     <img class="galons" src="img/container.jpg" alt="Product 1">
                     <h1>1 GALON </h1>
                 </div>
-                <div>
-                    <img class="galons" src="img/5liter.webp" alt="Product 2">
-                    <h1>10 LITRE</h1>
-                </div>    
             </div>
 
             <!-- Product selection -->
             <select id="productSelect">
                 <option value="" disabled selected>Select a product</option>
                 <option value="Galon">1 Galon</option>
-                <option value="Litre">10 Litre</option>
-                <option value="Both Product">Both</option>
             </select>
 
             <!-- Quantity for first product -->
             <input type="number" id="Galon" placeholder="Quantity for 1 Galon (Input '0' if di kani imong paliton boanga ka)" min="1">
 
-            <!-- Quantity for second product -->
-            <input type="number" id="Litre" placeholder="Quantity for 10 Litre (Input '0' if di kani imong paliton boanga ka)" min="1">
 
             <!-- Payment mode selection -->
             <select id="paymentMode">
@@ -102,7 +92,6 @@
                     <tr>
                         <th>Order Number</th>
                         <th>Order Receipt</th>
-                        <th>Function</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -117,14 +106,36 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2 id="bothName"></h2>
+            <h2 id="galName"></h2>
             <p class="align"><strong>Price for Galon:</strong><br><span id="galonPrice"></span></p>
             <p class="align"><strong>Quantity for Galon:</strong><br><span id="galonQuant"></span></p>
-            <p class="align"><strong>Price for Litre:</strong><br><span id="litrePrice"></span></p>
-            <p class="align"><strong>Quantity for Litre:</strong><br><span id="litreQuant"></span></p>
             <p class="align"><strong>Date Ordered:</strong><br><span id="orderDate"></span></p>
             <p class="align"><strong>Total:</strong><br><span id="orderTotal"></span></p>
             <p class="align"><strong>Mode Of Payment:</strong><br><span id="orderMOP"></span></p>
+        </div>
+     </div>
+     <!-- Modal for Changing Product -->
+     <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="editClose">&times;</span>
+            <!-- Product selection -->
+            <select id="changeProd">
+                <option value="" disabled selected>Select a product</option>
+                <option value="editGalon">1 Galon</option>
+            </select>
+
+            <!-- Quantity for first product -->
+            <input type="number" id="changeQuant" placeholder="Quantity for 1 Galon (Input '0' if di kani imong paliton boanga ka)" min="1">
+
+
+            <!-- Payment mode selection -->
+            <select id="changePayment">
+                <option value="" disabled selected>Select payment mode</option>
+                <option value="gcash">Gcash</option>
+                <option value="cash On Delivery">Cash On Delivery</option>
+            </select>
+
+            <button class="place-order" onclick="changeOrder()">Place Order</button>
         </div>
      </div>
 

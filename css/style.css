@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border-radius: 6px;
+    border: none;
+    padding: 5px 15px;
+    appearance: none;
+    border: 2px solid #1A1A1A;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    min-width: 0;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+button:hover {
+    background-color: antiquewhite;
+}
+
+
+button:disabled {
+  pointer-events: none;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #1a1a1a;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+input[type=text], input[type=password], input[type=number], textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 7px;
+    border-radius: 7px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+}
+   
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    margin: 5px 1px 3px 0px;
+    padding: 7px;
+    border-radius: 7px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+/* Profile Menu Dropdown */
+.profile-menu {
+  width: 250px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 60px; /* Position below the navbar */
+  right: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: hidden;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-header h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+}
+
+.profile-options a {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.profile-options a:hover {
+  background-color: #f0f0f0;
+}
+
+.profile-options a i.icon {
+  margin-right: 10px;
+}
+
+
+.logout-btn:hover {
+  background-color: #fce4e4;
+}
+
+/* Display dropdown menu on hover */
+.navbar a:hover + .profile-menu {
+  display: block;
+}
+
+/* Profile Icon in Navbar */
+.profile-icon {
+  margin-left: auto; /* Pushes the icon to the right */
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.icon-image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+/* Profile Menu Dropdown */
+.profile-menu {
+  width: 250px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 60px; /* Position below the navbar */
+  right: 20px;
+  display: none; /* Hidden by default, shown on icon click */
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+  position: relative;
+  width: 80px; 
+  height: auto;
+  margin-left: 50px; 
+}
+
+/* Container Styling for Registration Section */
+#register-section {
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Form Container */
+#register-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Label Styles */
+#register-section label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Input Field Styles */
+#register-section input[type="text"],
+#register-section input[type="number"] {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Button Styling */
+#register-section #submit {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+#register-section #submit:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #register-section {
+      padding: 15px;
+  }
+
+  #register-section input[type="text"],
+  #register-section input[type="number"],
+  #register-section #submit {
+      font-size: 14px;
+  }
+}
+

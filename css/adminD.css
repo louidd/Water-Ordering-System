@@ -1,14 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+a {
+    text-decoration: none;
 }
 
 /* Navbar Styles */
@@ -16,9 +7,10 @@ body {
     display: flex;
     justify-content: center; /* Center the navbar links */
     background-color: #333;
-    padding: 10px 0;
+    padding: 0px 0;
     position: relative;
     align-items: center; /* Vertically center the items */
+    gap: 30px;
 }
 
 .navbar a {
@@ -75,8 +67,11 @@ body {
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-    text-align: center;
+    text-align: left;
+    position: absolute; /* Position absolutely */
+    left: 0; /* Align to the left edge of the parent container */
 }
+
 
 .notification p {
     margin: 0;
@@ -123,6 +118,54 @@ body {
 .breadcrumbs span {
     color: gray;
 }
+
+#account_content td, #pendingOrders-section td{
+    text-align: center;
+}
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    text-align: center;
+    backdrop-filter: blur(3px);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 60px;
+    border: 1px solid #888;
+    width: 30%;
+    max-width: 600px;
+    height: 500px;
+}
+
+.close, .bothClose {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+}
+.close:hover, .close:focus, .bothClose:hover, .bothClose:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.align{
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* End of Modal Content */
+
 
 @media (max-width: 768px) {
     .navbar {
@@ -204,4 +247,5 @@ body {
 input{
     display: flex;
 }
+
 
