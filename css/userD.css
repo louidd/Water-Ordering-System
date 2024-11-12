@@ -129,6 +129,44 @@ select, input[type="number"] {
     justify-content: center;
     align-items: center;
 }
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-icon span {
+    font-size: 2rem;
+    color: white;
+}
+
+.profile-icon span::first-letter {
+    text-transform: capitalize;
+}
+
+#customerUsername2::first-letter {
+    text-transform: capitalize;
+}
+
+#homeContent h1 span {
+    text-transform: capitalize;
+}
+
+.logoNav1 img{
+    height: 4rem;
+}
+
+.logoNav1 {
+    color: white;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+
 /* End of Modal Content */
 
 /* Media Queries for Responsive Design */
@@ -161,4 +199,3 @@ select, input[type="number"] {
     }
     
 }
-

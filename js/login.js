@@ -28,7 +28,7 @@ if(adminIsLogin){
 //Session data for User
 if(userIsLogin){
     alert("Please Logout First!")
-    window.location = "userD.html";
+    window.location = "sample.html";
 }
 
 // Function to login as admin

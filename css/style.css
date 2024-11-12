@@ -133,7 +133,8 @@ input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, te
   margin-left: auto; /* Pushes the icon to the right */
   cursor: pointer;
   padding: 10px;
-  margin-right: 20px;
+  margin-top: -5px;
+  margin-right: 1.8rem;
 }
 
 .icon-image {
@@ -149,8 +150,8 @@ input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, te
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 60px; /* Position below the navbar */
-  right: 20px;
+  top: 3.8rem;
+  right: 1.7rem;
   display: none; /* Hidden by default, shown on icon click */
   z-index: 1000;
 }

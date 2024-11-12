@@ -6,20 +6,39 @@
     <title>Water Ordering System</title>
     <link rel="stylesheet" href="css/userD.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/water.png">
 </head>
 <body>
     <div class="navbar">
-        <a href="#home" onclick="showContent('home')">Home</a>
-        <a href="#orderNow" onclick="showContent('orderNow')">Order Now</a>
-        <a href="#placedOrders" onclick="showContent('placedOrders')">Placed Orders</a>
-        <a href="#history" onclick="showContent('history')">History</a>
-        <a href="#logout" class="logout-btn" onclick="logout()">Logout</a> <!-- Logout button -->
+        <div class="logoNav1" onclick="showContent('home')">
+            <img src="img/water.png" alt="">
+            <h1>Water Ordering System</h1>
+        </div>
+        <img src="img/logo.png" alt="">
+        <div class="profile-icon" onclick="toggleDropdown()">
+            <span id="customerUsername"></span>
+            <img src="img/icon.png" alt="Profile Icon" class="icon-image">
+        </div>
+    </div>
+
+    <div class="profile-menu" id="profileMenu">
+        <div class="profile-header">
+            <img src="img/icon.png" alt="Profile Image" class="profile-image">
+            <h2 id="customerUsername2"></h2>
+        </div>
+        <div class="profile-options">
+            <a href="#home" onclick="showContent('home')">Home</a>
+            <a href="#orderNow" onclick="showContent('orderNow')"><i class="icon user-icon"></i> Order Now</a>
+            <a href="#placedOrders" onclick="showContent('placedOrders')">Placed Orders</a>
+            <a href="#history" onclick="showContent('history')">History</a>
+            <a href="index.html" class="icon logout-icon" onclick="logout()">Logout</a>
+        </div>
     </div>
     
 
     <!-- Home content -->
     <div class="content active" id="homeContent">
-        <h1>Welcome, <span id="customerUsername"></span>!</h1>
+        <h1>Welcome, <span id="customerUsername1"></span>!</h1>
     </div>
 
     <!-- Order Now content -->

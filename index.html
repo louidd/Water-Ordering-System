@@ -6,40 +6,60 @@
         <title>Water Ordering System</title>
         <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="img/water.png">
     </head>
     <body>
-            <!-- Choice Buttons (centered) -->
-            <div class="form-box">
-                <h1>Login as:</h1>
-                <div style="margin-top: 10px;">
-                    <button onclick="showUser()">User</button>
-                    <button onclick="showAdmin()">Admin</button>
-                </div>
-            </div>
 
-            <!-- User Login Form (appears on the left) -->
-            <div id="userLogin" class="login-box form-box">
-                <h2>Login as User:</h2>
-                <form onsubmit="return loginUser()">
-                    <input type="text" id="user" name="user" placeholder="username" required>
-                    <input type="password" id="userP" name="userP" placeholder="password" required>
-                    <div>
-                        <button type="submit" id="userLog">Login</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Admin Login Form (appears on the right) -->
-            <div id="adminLogin" class="login-box form-box" style="display: none;">
-                <h2>Login as Admin:</h2>
-                <form onsubmit="return loginAdmin()">
-                    <input type="text" id="admin" name="admin" placeholder="username" required>
-                    <input type="password" id="adminP" name="adminP" placeholder="password" required>
-                    <div>
-                        <button type="submit" id="adminLog">Login</button>
-                    </div>
-                </form>
-            </div>
+        <div class="ocean">
+            <div class="bubble bubble--1"></div>
+            <div class="bubble bubble--2"></div>
+            <div class="bubble bubble--3"></div>
+            <div class="bubble bubble--4"></div>
+            <div class="bubble bubble--5"></div>
+            <div class="bubble bubble--6"></div>
+            <div class="bubble bubble--7"></div>
+            <div class="bubble bubble--8"></div>
+            <div class="bubble bubble--9"></div>
+            <div class="bubble bubble--10"></div>
+            <div class="bubble bubble--11"></div>
+            <div class="bubble bubble--12"></div>
+            <div id="octocat"></div>
+          </div>
+          
+          <div class="centercenter">
+              <!-- Choice Buttons (centered) -->
+              <div class="form-box">
+                  <h1>Login as:</h1>
+                  <div style="margin-top: 10px;">
+                      <button onclick="showUser()">User</button>
+                      <button onclick="showAdmin()">Admin</button>
+                  </div>
+              </div>
+  
+              <!-- User Login Form (appears on the left) -->
+              <div id="userLogin" class="login-box form-box">
+                  <h2>Login as User:</h2>
+                  <form onsubmit="return loginUser()">
+                      <input type="text" id="user" name="user" placeholder="Username" required>
+                      <input type="password" id="userP" name="userP" placeholder="Password" required>
+                      <div>
+                          <button type="submit" id="userLog">Login</button>
+                      </div>
+                  </form>
+              </div>
+  
+              <!-- Admin Login Form (appears on the right) -->
+              <div id="adminLogin" class="login-box form-box" style="display: none;">
+                  <h2>Login as Admin:</h2>
+                  <form onsubmit="return loginAdmin()">
+                      <input type="text" id="admin" name="admin" placeholder="Username" required>
+                      <input type="password" id="adminP" name="adminP" placeholder="Password" required>
+                      <div>
+                          <button type="submit" id="adminLog">Login</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
 
         <script src="js/login.js"></script>
     </body>

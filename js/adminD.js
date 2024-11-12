@@ -332,12 +332,16 @@ function toggleDropdown() {
     profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
 }
 
-// Close dropdown menu if clicked outside
+// Close dropdown menu if clicked outside or on an option
 document.addEventListener('click', function(event) {
     const profileMenu = document.getElementById('profileMenu');
     const profileIcon = document.querySelector('.profile-icon');
 
+    // Check if clicked outside the menu or on an option
     if (!profileMenu.contains(event.target) && !profileIcon.contains(event.target)) {
+        profileMenu.style.display = 'none';
+    } else if (profileMenu.contains(event.target)) {
+        // Close the menu if an option inside it is clicked
         profileMenu.style.display = 'none';
     }
 });

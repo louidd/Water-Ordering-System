@@ -14,11 +14,13 @@ const closeEdit = document.getElementsByClassName("editClose")[0];
     displayOrder()
     historyOrder()
 
+
+
 function logout() {
-    // Perform logout actions, like clearing session data, redirecting, etc.
-    alert("You have been logged out.");
-    sessionStorage.removeItem("User");
-    window.location.href = "index.html"; // Redirect to login page or another desired location
+    if (confirm("Are you sure you want to logout?")) {
+        sessionStorage.removeItem("User");
+        window.location.href = 'index.html'; // Redirect to login page
+    }
 }
 
 function showContent(contentId) {
@@ -97,6 +99,8 @@ function loadUsername() {
 
     // Set the username in the homeContent section
     document.getElementById('customerUsername').textContent = userLogin;
+    document.getElementById('customerUsername1').textContent = userLogin;
+    document.getElementById('customerUsername2').textContent = userLogin;
 }
 
 // Call this function when the page loads
@@ -226,3 +230,23 @@ window.onclick = function(event) {
         modalEdit.style.display = "none";
     }
 }
+
+function toggleDropdown() {
+    const profileMenu = document.getElementById('profileMenu');
+    profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
+}
+
+// Close dropdown menu if clicked outside or on an option
+document.addEventListener('click', function(event) {
+    const profileMenu = document.getElementById('profileMenu');
+    const profileIcon = document.querySelector('.profile-icon');
+
+    // Check if clicked outside the menu or on an option
+    if (!profileMenu.contains(event.target) && !profileIcon.contains(event.target)) {
+        profileMenu.style.display = 'none';
+    } else if (profileMenu.contains(event.target)) {
+        // Close the menu if an option inside it is clicked
+        profileMenu.style.display = 'none';
+    }
+});
+

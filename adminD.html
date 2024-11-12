@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/adminD.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/tables.css">
+    <link rel="icon" href="img/water.png">
 </head>
 <body>
 
@@ -16,7 +17,8 @@
         <a href="#history" onclick="showContent('history')">History</a>
         <a href="#register" onclick="showContent('register')">Register</a>
         <!-- Profile Icon for Dropdown Menu -->
-        <div class="profile-icon" onclick="toggleDropdown()">
+        <div class="profile-icon" style="display: flex; gap: 10px; align-items: center; color: white;" onclick="toggleDropdown()">
+            <h1>Admin</h1>
             <img src="img/icon.png" alt="Profile Icon" class="icon-image">
         </div>
     </div>
@@ -25,7 +27,7 @@
     <div class="profile-menu" id="profileMenu">
         <div class="profile-header">
             <img src="img/icon.png" alt="Profile Image" class="profile-image">
-            <h2>Einstein Gay</h2>
+            <h2>Admin</h2>
         </div>
         <div class="profile-options">
             <a href="#view-profile"><i class="icon user-icon"></i> View Profile</a>
@@ -60,8 +62,8 @@
         
 
         <div class="notification" id="notification">
+            <div class="close-btn" onclick="closeNotification()">&times;</div> <!-- Close button -->
             <p>🔔You have <span id="notif"></span> new pending orders!</p>
-            <span class="close-btn" onclick="closeNotification()">&times;</span> <!-- Close button -->
         </div>
 
         <canvas id="orderStatusChart"></canvas>
